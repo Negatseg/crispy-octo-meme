@@ -1,6 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 
 document.addEventListener("DOMContentLoaded", function () {
   const currentDate = new Date();
@@ -8,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
 
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
-  document.getElementById("currentDay").textContent = "Today is " + formattedDate;
+  document.getElementById("currentDay").textContent = formattedDate;
 });
 
 
