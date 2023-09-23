@@ -1,6 +1,31 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+document.addEventListener("DOMContentLoaded", function () {
+  const currentDate = new Date();
+
+  const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+
+  const formattedDate = currentDate.toLocaleDateString("en-US", options);
+  document.getElementById("currentDay").textContent = "Today is " + formattedDate;
+});
+
+
+//const saveButtons = document.querySelectorAll('btn saveBtn col-2 col-md-1')
+
+//saveButtons.forEach(button => {
+  //button.addEventListener('click', function() {
+    // Traverse the DOM to find the ID of the containing time-block
+    //const timeBlock = this.closest('.time-block');
+    //const timeBlockId = timeBlock.id;
+
+    // Use the ID as a key to save the user input in local storage
+    //const userInput = timeBlock.querySelector('textarea').value;
+    //localStorage.setItem(timeBlockId, userInput);
+  //});
+//});
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
