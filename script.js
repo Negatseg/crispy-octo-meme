@@ -12,22 +12,17 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   updateHourStyles();
 
-  // Update styles every minute to account for changes in time
-  setInterval(updateHourStyles, 3600000);
+  setInterval(updateHourStyles, 60000);
 
   function updateHourStyles() {
-      // Get the current hour
       const currentHour = new Date().getHours();
 
-      // Loop through each time-block div
       const timeBlocks = document.querySelectorAll(".time-block");
       timeBlocks.forEach(function (timeBlock) {
-          const hour = parseInt(timeBlock.id.split("-")[1]);
+          const hour = (timeBlock.id);
 
-          // Remove all classes (past, present, future)
-          //timeBlock.classList.remove("past", "present", "future");
+          timeBlock.classList.remove("past", "present", "future");
 
-          // Add the appropriate class based on the current hour
           if (hour < currentHour) {
               timeBlock.classList.add("past");
           } else if (hour === currentHour) {
