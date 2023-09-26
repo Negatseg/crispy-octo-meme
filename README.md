@@ -13,5 +13,5 @@ WHEN I click the save button for that time block
 THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
-![image](https://github.com/Negatseg/crispy-octo-meme/assets/81937460/8a23d113-2fcd-4ff4-aef7-b906554a7a53)
+![Alt text](image.png)
 
