@@ -12,17 +12,22 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   updateHourStyles();
 
-  setInterval(updateHourStyles, 60000);
+  
+  setInterval(updateHourStyles, 3600000);
 
   function updateHourStyles() {
+
       const currentHour = new Date().getHours();
 
+      
       const timeBlocks = document.querySelectorAll(".time-block");
       timeBlocks.forEach(function (timeBlock) {
-          const hour = (timeBlock.id);
+          const hour = parseInt(timeBlock.id.split("-")[1]);
 
+          
           timeBlock.classList.remove("past", "present", "future");
 
+          
           if (hour < currentHour) {
               timeBlock.classList.add("past");
           } else if (hour === currentHour) {
@@ -39,24 +44,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+ 
 
 
 
 
-const saveButtons = document.querySelectorAll('saveBtn')
 
-saveButtons.forEach(button => {
-  button.addEventListener('click', function() {
-    const timeBlock = this.closest('.time-block');
-    const timeBlockId = timeBlock.id;
+
+
+
+
+
+
+
+
+
+$(".saveBtn").on('click',function() {
+  const timeBlock = this.closest('.time-block');
+  const timeBlockId = timeBlock.id;
+
+
+  const userInput = timeBlock.querySelector('textarea').value;
+  localStorage.setItem(timeBlockId, userInput);
+})
+
+$('#hour-9 .description').val(localStorage.getItem('hour-9'))
+$('#hour-10 .description').val(localStorage.getItem('hour-10'))
+$('#hour-11 .description').val(localStorage.getItem('hour-11'))
+$('#hour-12 .description').val(localStorage.getItem('hour-12'))
+$('#hour-13 .description').val(localStorage.getItem('hour-13'))
+$('#hour-14 .description').val(localStorage.getItem('hour-14'))
+$('#hour-15 .description').val(localStorage.getItem('hour-15'))
+$('#hour-16 .description').val(localStorage.getItem('hour-16'))
+$('#hour-17 .description').val(localStorage.getItem('hour-17'))
+
+
+// saveButtons.forEach(button => {
+//   button.addEventListener('click', function() {
+//     const timeBlock = this.closest('.time-block');
+//     const timeBlockId = timeBlock.id;
 
   
-    const userInput = timeBlock.querySelector('textarea').value;
-    localStorage.setItem(timeBlockId, userInput);
-    const storedText = localStorage.getItem(timeBlockId, userInput);
-    userInput.value = storedText;
-  });
-});
+//     const userInput = timeBlock.querySelector('textarea').value;
+//     localStorage.setItem(timeBlockId, userInput);
+//     const storedText = localStorage.getItem(timeBlockId);
+//     userInput = storedText;
+//   });
+// });
 
 //function displayEvents() {
  // const eventText = timeBlock.querySelector('textarea').value;
