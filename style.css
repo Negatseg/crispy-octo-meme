@@ -16,6 +16,8 @@ textarea {
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+  text-align: center;
+  height: 80px;
 }
 
 .description {
@@ -24,8 +26,9 @@ textarea {
 
 .time-block {
   border-radius: 15px;
+  height: auto;
+  padding: 10px;
 }
-
 .row {
   border-top: 1px solid white;
 }
